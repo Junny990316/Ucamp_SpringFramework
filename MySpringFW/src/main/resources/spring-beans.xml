@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- StringPrinter 클래스를  Spring Bean으로 등록 -->
+	<bean id="strPrinter" class="myspring.di.xml.StringPrinter" />
+	
+	<!-- ConsolPrinter 클래스를  Spring Bean으로 등록 -->
+	<bean id="conPrinter" class="myspring.di.xml.ConsolePrinter"/>
+	
+	<!-- Hello 클래스를  Spring Bean으로 등록 -->
+	<bean  id="hello" class="myspring.di.xml.Hello" scope="singleton">
+	    <!-- setter injection -->
+		<property name="name" value="스프링" />
+		<property name="printer" ref="strPrinter" />
+	</bean>
+	
+	<bean id="helloC" class="myspring.di.xml.Hello">
+	<!-- Constructor Injection -->
+	<constructor-arg index="0" value="생성자" />
+	<constructor-arg index="1" ref="conPrinter" />
+	<property name="names">
+		<list>
+			<value>Spring Framework</value>
+			<value>Spring Boot</value>
+			<value>Spring cloud</value>
+		</list>
+	</property>
+	</bean>
+	
+</beans>
