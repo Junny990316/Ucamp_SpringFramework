@@ -9,6 +9,8 @@
 	<configs>
 		<config>src/main/resources/spring-beans.xml</config>
 		<config>src/main/resources/spring-beans-annot.xml</config>
+		<config>src/main/resources/spring-beans-configuration.xml</config>
+		<config>src/main/resources/spring-beans-configuration2.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

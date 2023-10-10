@@ -9,14 +9,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+
+
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = "classpath:spring-beans-annot.xml")
+@ContextConfiguration(locations = "file:src/main/resources/spring-beans-annot.xml")
 public class AnnotatedHelloBeanTest {
 	@Autowired
 	Hello hello;
 	
 	@Resource(name="stringPrinter")
 	Printer printer;
+	
+	@Autowired
+	HelloCons helloCons;
+
+	@Test
+	public void helloConsBean() {
+		Assertions.assertEquals("Hello annot생성자", helloCons.sayHello());
+		helloCons.print();
+	}
 	
 	@Test
 	public void helloBean() {

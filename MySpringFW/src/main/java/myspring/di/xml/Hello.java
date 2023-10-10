@@ -8,11 +8,11 @@ public class Hello {
 	List<String> names;
 
 	public Hello() {
-		System.out.println(this.getClass().getName() + " 생성자 호출됨!!");
+		
 	}
 
 	public Hello(String name, Printer printer) {
-		System.out.println(this.getClass().getName() + " 오버로딩된 생성자 호출됨!!");
+		
 		this.name = name;
 		this.printer = printer;
 	}
